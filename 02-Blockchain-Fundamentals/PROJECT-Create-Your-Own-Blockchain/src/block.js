@@ -35,9 +35,17 @@ class Block {
      *  5. Resolve true or false depending if it is valid or not.
      *  Note: to access the class values inside a Promise code you need to create an auxiliary value `let self = this;`
      */
-    validate() {
-        let self = this;
-        return new Promise((resolve, reject) => {
+   validate() {
+        return new Promise((resolve) => {
+            const currentHash = this.hash;
+            this.hash = null;
+
+            const validHash = SHA256( JSON.stringify(this) ).toString();
+
+            resolve(currentHash === validHash);
+        });
+    }
+
             // Save in auxiliary variable the current block hash
                                             
             // Recalculate the hash of the Block
@@ -45,9 +53,6 @@ class Block {
             // Returning the Block is not valid
             
             // Returning the Block is valid
-
-        });
-    }
 
     /**
      *  Auxiliary Method to return the block body (decoding the data)
@@ -64,7 +69,12 @@ class Block {
         // Parse the data to an object to be retrieve.
 
         // Resolve with the data if the object isn't the Genesis block
+        return new Promise((resolve, reject) => {
+            if (!this.previousBlockHash) resolve(null);
 
+            const decodedData = JSON.parse( hex2ascii(this.body) );
+            resolve(decodedData);
+        });
     }
 
 }
