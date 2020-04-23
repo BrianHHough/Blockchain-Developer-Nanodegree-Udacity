@@ -21,5 +21,10 @@ This is the first Udacity Blockchain Nanodegree project, where I created a priva
 - `hex2ascii` helps decode the data saved in the body of a Block.
 
 
+# STEP 1: REVIEW BOILERPLATE CODE
+
+Check in the terminal that the Express application is listening in the PORT 8000
+
+![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/02-Blockchain-Fundamentals/PROJECT-Create-Your-Own-Blockchain/Screenshots/Part1-port8000.png)
 
 
