@@ -34,7 +34,7 @@ class Blockchain {
      * Passing as a data `{data: 'Genesis Block'}`
      */
     async initializeChain() {
-        if( this.height === -1){
+        if (this.height === -1) {
             let block = new BlockClass.Block({data: 'Genesis Block'});
             await this._addBlock(block);
         }
@@ -50,6 +50,14 @@ class Blockchain {
     }
 
     /**
+     * Utility method for getting the current UTC timestamp
+     */
+
+     _getUTCTimestamp() {
+         return new Date().getTime().toString().slice(0,-3);
+     }
+
+    /**
      * _addBlock(block) will store a block in the chain
      * @param {*} block 
      * The method will return a Promise that will resolve with the block added
@@ -62,9 +70,27 @@ class Blockchain {
      * that this method is a private method. 
      */
     _addBlock(block) {
-        let self = this;
         return new Promise(async (resolve, reject) => {
-           
+            try {
+                const newHeight = this.height + 1;
+
+                block.height = newHeight;
+                block.time = this._getUTCTimestamp();
+
+                if (newHeight > 0) {
+                    const previousBlock = await this.getBlockByHeight(this.height);
+                    block.previousBlockHash = previousBlock.hash;
+                }
+
+                block.hash = SHA256( JSON.stringify(block) ).toString();
+
+                this.chain.push(block);
+                this.height = newHeight;
+                resolve(block);
+            } catch (err) {
+
+                reject(err);
+            }
         });
     }
 
