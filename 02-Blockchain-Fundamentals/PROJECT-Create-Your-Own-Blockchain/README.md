@@ -1,4 +1,4 @@
-# Private Blockchain Application
+# Project #1: Private Blockchain Application
 
 You are starting your journey as a Blockchain Developer, this project allows you to demonstrate
 that you are familiarized with the fundamentals concepts of a Blockchain platform.
@@ -12,8 +12,28 @@ Concepts like:
 Are some of the most important components in the Blockchain Framework that you will need to describe and also
 why not? Implement too.
 
-In this project you will have a boilerplate code with a REST Api already setup to expose some of the functionalities
+In this project you will have a boilerplate code with a REST API already setup to expose some of the functionalities
 you will implement in your private blockchain.
+
+
+## The tools and technologies I used to create my private blockchain:
+- Languages: `Node.js` and `JavaScript`
+- IDE: Visual Studio Code
+- Libraries and npm modules used:
+    - "bitcoinjs-lib": "^4.0.3",
+    - "bitcoinjs-message": "^2.0.0",
+    - "body-parser": "^1.18.3",
+    - "crypto-js": "^3.1.9-1",
+    - "express": "^4.16.4",
+    - "hex2ascii": "0.0.3",
+    - "morgan": "^1.9.1"
+
+## What the Libraries Do:
+- `bitcoinjs-lib` and `bitcoinjs-message` helps verify wallet address ownership and signatures.
+- `express` is a node framework used to create The REST API.
+- `body-parser` is a middleware module for Express and helps to read the json data submitted in a POST request.
+- `crypto-js` contains some of the most important cryptographic methods and helps create the block hash.
+- `hex2ascii` helps decode the data saved in the body of a Block.
 
 ## What problem will you solve implementing this private Blockchain application?
 
@@ -188,6 +208,8 @@ Always is useful to debug your code see what is happening in your algorithm, so 
 1. Run your application using the command `node app.js`
 You should see in your terminal a message indicating that the server is listening in port 8000:
 > Server Listening for port: 8000
+
+![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/02-Blockchain-Fundamentals/PROJECT-Create-Your-Own-Blockchain/Screenshots/Part1-port8000.png)
 
 2. To make sure your application is working fine and it creates the Genesis Block you can use POSTMAN to request the Genesis block:
     ![Request: http://localhost:8000/block/0 ](https://s3.amazonaws.com/video.udacity-data.com/topher/2019/April/5ca360cc_request-genesis/request-genesis.png)
