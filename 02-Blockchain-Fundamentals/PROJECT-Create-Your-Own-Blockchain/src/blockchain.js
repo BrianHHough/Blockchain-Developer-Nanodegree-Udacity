@@ -70,7 +70,7 @@ class Blockchain {
      * that this method is a private method. 
      */
     _addBlock(block) {
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async(resolve,reject) => {
             try {
                 const newHeight = this.height + 1;
                 block.height = newHeight;
@@ -79,7 +79,7 @@ class Blockchain {
                     const previousBlock = await this.getBlockByHeight(this.height);
                     block.previousBlockHash = previousBlock.hash;
                 }
-                block.hash = SHA256( JSON.stringify(block) ).toString();
+                block.hash = SHA256(JSON.stringify(block)).toString();
                 this.chain.push(block);
                 this.height = newHeight;
                 resolve(block);
@@ -121,7 +121,7 @@ class Blockchain {
      */
     submitStar(address, message, signature, star) {
         let self = this;
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async(resolve,reject) => {
             const time = parseInt(message.split(':')[1]);
             const currentTime = parseInt(this._getUTCTimestamp());
             const allowedDelay = 5 * 60;
@@ -199,14 +199,14 @@ class Blockchain {
         return new Promise(async (resolve, reject) => {
             for (let i = 0; i < this.chain.length; i++) {
                 const currentBlock = this.chain[i];
-                if ( !(await currentBlock.validate()) ) {
+                if (!(await currentBlock.validate())) {
                     errorLog.push({
                         error: 'Failed validation',
                         block: currentBlock
                     });
                 }
                 if (i === 0) continue;
-                const previousBlock = this.chain[i - 1];
+                const previousBlock = this.chain[i-1];
                 if (currentBlock.previousBlockHash !== previousBlock.hash) {
                     errorLog.push({
                         error: 'Previous block hash does not match',

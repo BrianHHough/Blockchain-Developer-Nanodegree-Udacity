@@ -39,9 +39,7 @@ class Block {
         return new Promise((resolve) => {
             const currentHash = this.hash;
             this.hash = null;
-
-            const validHash = SHA256( JSON.stringify(this) ).toString();
-
+            const validHash = SHA256(JSON.stringify(this)).toString();
             resolve(currentHash === validHash);
         });
     }
@@ -69,14 +67,11 @@ class Block {
         // Parse the data to an object to be retrieve.
 
         // Resolve with the data if the object isn't the Genesis block
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve,reject) => {
             if (!this.previousBlockHash) resolve(null);
-
-            const decodedData = JSON.parse( hex2ascii(this.body) );
-            resolve(decodedData);
+            const decodedData = JSON.parse(hex2ascii(this.body));
+            resolve(decodedData)
         });
     }
-
 }
-
 module.exports.Block = Block;                    // Exposing the Block class as a module
