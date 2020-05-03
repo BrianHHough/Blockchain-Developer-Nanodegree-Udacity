@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
+    <title>StarNotary Token DAPP | Truffle Webpack w/ Frontend</title>
   </head>
   <style>
     input {
@@ -10,28 +10,36 @@
     }
   </style>
   <body>
-    <h1>MetaCoin — Example Truffle Dapp</h1>
-    <p>You have <strong class="balance">loading...</strong> META</p>
+    <h1>STAR/CENTRAL: StarNotary Token DAPP</h1>
+    <h2>Truffle webpack w/ frontend dapp for creating and managing stars</h2>
+    <p>Digitizing the <strong class="universe">universe...</strong> with STAR/CENTRAL</p>
 
-    <h1>Send MetaCoin</h1>
+<br>
 
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
+    <h1>Create a Star</h1>
+    <label for="starName">Star Name:</label><input 
+      type="text" 
+      id="starName" 
+      placeholder="e.g. Royal Nebulous">
+    </input>
 
-    <label for="receiver">To address:</label>
+    <label for="starID">Star ID:</label>
     <input
       type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
+      id="starID"
+      placeholder="e.g. 0x1111222233334444555566667777">
+    </input>
+    
 
-    <button onclick="App.sendCoin()">Send MetaCoin</button>
-
-    <p id="status"></p>
+    <button id="createStar" onclick="App.createStar()">Create Star</button>
+    <ul id="stars"></ul>
+    <span<p id="status"></p></span>
     <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
+      <!-- strong>Hint:</strong> open the browser developer console to view any
+      errors and warnings. -->
     </p>
     <script src="index.js"></script>
   </body>
 </html>
+
+ 
