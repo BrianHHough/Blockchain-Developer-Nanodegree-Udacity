@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
+    <title>StarNotary DAPP Front End</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <style>
     input {
@@ -10,28 +11,26 @@
     }
   </style>
   <body>
-    <h1>MetaCoin — Example Truffle Dapp</h1>
-    <p>You have <strong class="balance">loading...</strong> META</p>
 
-    <h1>Send MetaCoin</h1>
+    <h1>StarNotary DAPP</h1>
+    <!--Creating a label: click is a function that calls the function from the js file-->
+    <br><label for="name">Star Name:</label><h3 id='name'>Star Name: </h3>
+    <br><br><button onclick="App.starNameFunc()">Get Star Name</button>
+    <hr>
+    <br><label for="owner">Star Owner:</label><h3 id='owner'>Star Owner: </h3>
+    <!--Creating a button-->
+    <br><br><button onclick="App.starOwnerFunc()">Get Star Owner</button>
+    <br><br>
+    <hr>
+    <br>
+      <h1>Claim Star</h1>
+      <br><br><button id="claimStar" onclick="App.claimStarFunc()">Claim a Star</button>
+      <br><br>
+      <br>
+      <hr>
+        <span id="status"></span>
+      <br>
 
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
-
-    <label for="receiver">To address:</label>
-    <input
-      type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
-
-    <button onclick="App.sendCoin()">Send MetaCoin</button>
-
-    <p id="status"></p>
-    <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
-    </p>
     <script src="index.js"></script>
   </body>
 </html>
