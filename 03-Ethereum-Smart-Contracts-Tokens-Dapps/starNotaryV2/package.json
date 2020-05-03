@@ -1,7 +1,7 @@
 {
   "name": "starnotaryv2",
   "version": "1.0.0",
-  "description": "",
+  "description": "## **IMPORTANT:**",
   "main": "truffle-config.js",
   "directories": {
     "test": "test"
@@ -13,6 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "openzeppelin-solidity": "^3.0.1",
-    "truffle": "^5.1.24"
-  }
+    "truffle": "^5.1.24",
+    "web3": "^1.2.7"
+  },
+  "devDependencies": {},
+  "keywords": []
 }
