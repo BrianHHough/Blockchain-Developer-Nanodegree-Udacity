@@ -1,4 +1,4 @@
-pragma solidity >=0.4.21 <0.7.0;
+pragma solidity ^0.6.0;
 
 // import this so we can call functions on it
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
@@ -44,7 +44,7 @@ contract StarNotary is ERC721 {
         // so we can send the funds to
         require(msg.value > starCost, "You need to have enough Ether");
         // whatever the msg.value is, it's greater than the starCost to ensure purchase
-        _transferFrom(ownerAddress, msg.sender, _tokenId);
+        transferFrom(ownerAddress, msg.sender, _tokenId);
         // We can't use _addTokenTo or_removeTokenFrom functions, now we have to use _transferFrom
         address payable ownerAddressPayable = _make_payable(ownerAddress);
         // We need to make this conversion to be able to use transfer() function to transfer ethers
