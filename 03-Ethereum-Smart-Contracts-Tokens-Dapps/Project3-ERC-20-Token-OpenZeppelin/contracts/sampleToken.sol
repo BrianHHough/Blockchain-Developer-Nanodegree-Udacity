@@ -4,13 +4,10 @@ import "../node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
 import "../node_modules/openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol";
 
 contract SampleToken is ERC20Detailed, ERC20 {
-string public name = "SampleToken";
-string public symbol = "EGT";
-uint public decimals = 10;
-uint public INITIAL_SUPPLY = 1000 * (10 ** decimals);
 
-constructor() public {
-    _totalSupply = INITIAL_SUPPLY;
-    _balances[msg.sender] = INITIAL_SUPPLY;
-}
+    constructor(string memory _name, string memory _symbol, uint8 _decimals, uint _initialSupply) 
+    ERC20Detailed(_name, _symbol, _decimals) public {
+        require(_initialSupply > 0, "INITIAL_SUPPLY has to be greater than 0");
+        _mint(msg.sender, _initialSupply);
+    }
 }

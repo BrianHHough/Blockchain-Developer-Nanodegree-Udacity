@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "openzeppelin-solidity": "^3.0.0",
     "web3": "^1.2.7"
   }
 }
