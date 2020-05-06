@@ -51,7 +51,12 @@ module.exports = {
       port: 9545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
-
+    rinkeby: {
+      provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/27b780c864594760b33dd24dca32f66b`),
+      network_id: 27,
+      gas: 45000,
+      gasPrice: 1000000
+    }
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port

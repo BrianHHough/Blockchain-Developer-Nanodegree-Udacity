@@ -88,28 +88,54 @@ it('can add the star name and star symbol properly', async() => {
 });
 
 it('lets 2 users exchange stars', async() => {
-    // Star ID's
-    const starTokenID1 = 135; // 1. create 2 Stars with different tokenId
+    // 1. create 2 Stars with different tokenId
+    const starTokenID1 = 135; // Star ID's
     const starTokenID2 = 159;
 
     // User ID's
     const ownerID1 = accounts[0];
     const ownerID2 = accounts[1];
 
-
+    // await statements for creating a star - for exchange
+    await instance.createStar('Star #1', starTokenID1, {from: ownerID1});
+    await instance.createStar('Star #2', starTokenID2, {from: ownerID2});
 
     // 2. Call the exchangeStars functions implemented in the Smart Contract
-    // 3. Verify that the owners changed
+    await instance.exchangeStars(starTokenID1, starTokenID2, { from: ownerID1 });
+
+
+    // 3. Verify that the owners changed --> assert statements
+    assert.equal(await instance.ownerOf(starTokenID1), ownerID2);
+    assert.equal(await instance.ownerOf(starTokenID2), ownerID1);
+
 });
 
 it('lets a user transfer a star', async() => {
     // 1. create a Star with different tokenId
+    const starTokenID = 583;
+
+    // New set of owner ID's
+    const ownerID1 = accounts[5];
+    const ownerID2 = accounts[6];
+
+    await instance.createStar('Star 1', starTokenID, { from: ownerID1 });
+
     // 2. use the transferStar function implemented in the Smart Contract
+    await instance.transferStar(ownerID2, starTokenID, { from: ownerID1 });
+    
     // 3. Verify the star owner changed.
+    assert.equal(await instance.ownerOf(starTokenID), ownerID2);
 });
 
 it('lookUptokenIdToStarInfo test', async() => {
     // 1. create a Star with different tokenId
+    const starTokenID = 854;
+
+    const anotherStarName = "Space Stars";
+
     // 2. Call your method lookUptokenIdToStarInfo
+    await instance.lookUptokenIdToStarInfo(anotherStarName, starTokenID, { from: accounts[0]});
+
     // 3. Verify if you Star name is the same
+    assert.equal(await instance.lookUptokenIdToStarInfo(starTokenID), anotherStarName);
 });
