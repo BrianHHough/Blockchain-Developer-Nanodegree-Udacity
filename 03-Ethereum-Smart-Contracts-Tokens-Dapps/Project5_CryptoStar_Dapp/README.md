@@ -48,6 +48,7 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 
 # Steps / Tasks:
 
+## Working locally:
 - Open the **package-lock.json** file and confirm that `truffle-hdwallet-provider` and `openzeppelin-solidity` dependencies are installed. If they aren't, install them with the following:
     - Step 1: 
     `npm install --save truffle-hdwallet-provider`
@@ -59,6 +60,11 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 `truffle develop`
 - To compile the contract inside the dev console, run: 
 `compile`
+
+## Deploying to Rinkeby Testnet:
+- Create a `.gitignore` file and a `secret` file that can hold the pneumonic:
+`echo "MY-PROJECT-SECRET-ID" > .secret`
+
 
 **Successfully compiled contracts in Truffle Developer Environment:**
 ![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/Documentation/Project-StarNotary/Contracts-compiled-successfully.png)
