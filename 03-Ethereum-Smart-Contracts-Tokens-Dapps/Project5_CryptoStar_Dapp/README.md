@@ -1,18 +1,23 @@
 # StarNotary Token DAPP
 
-## Truffle and OpenZeppelin versions used in project:
+## Core project information
+
+### Truffle and OpenZeppelin versions used in project:
 - Truffle v5.1.23
 - OpenZeppelin v2.1.2
 
-## The ERC-721 Token Name
+### The ERC-721 Token Name
 Interstellars
 
-## Your ERC-721 Token Symbol
+### Your ERC-721 Token Symbol
 INTX
 
-## Your “Token Address” on the Rinkeby Network
+### Your “Token Address” on the Rinkeby Network
 
-
+## Resources
+- ![Open-Zeppelin documentation](https://docs.openzeppelin.com/cli/2.8/faq])
+- ![Solidity documentation](https://solidity.readthedocs.io/en/v0.6.7/)
+- ![Stackoverflow](https://stackoverflow.com/questions/54210366/why-does-the-solidity-compiler-throw-a-parse-error-on-import-statements-whats) + Udacity mentors: fixing issue with version differences between solidity & dependencies of Web3 in JSON files and the parser issues b/c of version control
 
 
 ## Task 1
@@ -39,3 +44,31 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 ## Task 4
 **Modify the front end of the DAPP to achieve the following:**
 - Lookup a star by ID using tokenIdToStarInfo() (you will have to add code for this in your index.html and index.js files)
+
+
+# Steps / Tasks:
+
+- Open the **package-lock.json** file and confirm that `truffle-hdwallet-provider` and `openzeppelin-solidity` dependencies are installed. If they aren't, install them with the following:
+    - Step 1: 
+    `npm install --save truffle-hdwallet-provider`
+    - Step 2: 
+    `npm install --save openzeppelin-solidity`
+- Confirm truffle version: 
+`truffle -version`
+- Starting the development console, run: 
+`truffle develop`
+- To compile the contract inside the dev console, run: 
+`compile`
+
+![image](/Blockchain-Developer-Nanodegree-Udacity/Documentation/Project-StarNotary/Contracts-compiled-successfully.png)
+
+
+
+- To migrate the contract to the locally running Ethereum network inside the dev console, run: 
+`migrate --reset`
+- To run unit tests of the compiled contract inside the dev console, run:
+`test`
+- To run the front end of the Dapp, open another terminal window, `cd` into the project directory and run:
+`cd app`
+`npm run dev`
+

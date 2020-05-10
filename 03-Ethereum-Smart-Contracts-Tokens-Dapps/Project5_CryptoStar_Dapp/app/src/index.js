@@ -10,7 +10,7 @@ const App = {
     const { web3 } = this;
 
     try {
-      // get contract instance
+      // get contract instance --> await function with Web3 + ABI
       const networkId = await web3.eth.net.getId();
       const deployedNetwork = starNotaryArtifact.networks[networkId];
       this.meta = new web3.eth.Contract(
@@ -41,9 +41,18 @@ const App = {
 
   // Implement Task 4 Modify the front end of the DAPP
   lookUp: async function (){
-    
-  }
+    const { lookUpTokenIDToStarInfo } = this.meta.methods;
 
+    const ID = document.getElementById("lookUpID").value;
+    const starName = await lookUpTokenIDToStarInfo(ID).call();
+
+    if (starNam) {
+      App.setStatus(`The Star Name with ID ${ID} is "${starName}"`);
+    }
+    else {
+      App.setStatus(`Unable to find a Star with ID ${ID}`);
+    }  
+  }
 };
 
 window.App = App;
