@@ -60,9 +60,8 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 - To compile the contract inside the dev console, run: 
 `compile`
 
-![image](/Blockchain-Developer-Nanodegree-Udacity/Documentation/Project-StarNotary/Contracts-compiled-successfully.png)
-
-
+**Successfully compiled contracts in Truffle Developer Environment:**
+![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/Documentation/Project-StarNotary/Contracts-compiled-successfully.png)
 
 - To migrate the contract to the locally running Ethereum network inside the dev console, run: 
 `migrate --reset`
@@ -71,4 +70,6 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 - To run the front end of the Dapp, open another terminal window, `cd` into the project directory and run:
 `cd app`
 `npm run dev`
+
+
 
