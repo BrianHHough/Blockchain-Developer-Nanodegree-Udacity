@@ -82,5 +82,6 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 `cd app`
 `npm run dev`
 
+**App Runs Successfully**
 
 
