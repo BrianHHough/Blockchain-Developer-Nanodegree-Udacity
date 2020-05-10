@@ -17,6 +17,9 @@ You should be comfortable with object-oriented programming, and developing web a
 - Developing the front end and back end of a web application with JavaScript
 
 
+![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/Documentation/Core%20README/Nanodegree-Popup.png)
+
+
 ## Section 1: Blockchain Fundamentals
 ### Learn the basics of how the blockchain data model works by creating your own private blockchain using Node.js and Leveldb.
 A blockchain is a shared database that features added immutability as a safe and accurate alternative to
@@ -104,3 +107,5 @@ marketplace.
 **Key Lessons:**
 - ZK-SNARKs
 - Zokarates framework
+
+![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/Documentation/Core%20README/Udacity_Banner.png)
