@@ -66,12 +66,12 @@ module.exports = {
     },
     rinkeby: {
       provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/27b780c864594760b33dd24dca32f66b`),
-      network_id: 4,
-      gas: 5500000,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
+      network_id: 4,       // rinkeby's id
+        gas: 4500000,        // rinkeby has a lower block limit than mainnet
+        gasPrice: 10000000000
     },
+
+
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port
