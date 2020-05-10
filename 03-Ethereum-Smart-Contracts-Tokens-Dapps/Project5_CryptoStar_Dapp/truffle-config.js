@@ -35,7 +35,6 @@ const infuraKey = "27b780c864594760b33dd24dca32f66b";
 const fs = require('fs');
 const mnemonic = fs.readFileSync(".secret").toString().trim();
 
-
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -46,6 +45,8 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
+
+  contracts_build_directory: "./client/src/contracts",
 
   networks: {
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -58,12 +59,18 @@ module.exports = {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 9545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     },
     rinkeby: {
       provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/27b780c864594760b33dd24dca32f66b`),
-      network_id: 27,
-      gas: 45000,
-      gasPrice: 1000000
+      network_id: 4,
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     },
     // Another network with more advanced options...
     // advanced: {
@@ -97,6 +104,7 @@ module.exports = {
   // Set default mocha options here, use special reporters etc.
   mocha: {
     // timeout: 100000
+    timeout: 50000
   },
 
   // Configure your compilers

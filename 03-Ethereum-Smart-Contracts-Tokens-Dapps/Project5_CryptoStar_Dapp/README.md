@@ -74,7 +74,7 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 - To run unit tests of the compiled contract inside the dev console, run:
 `test`
 
-**Successfully passed all 9 tests:***
+**Successfully passed all 9 tests:**
 ![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/Documentation/Project-StarNotary/Passes_All_Tests.png)
 
 - To run the front end of the Dapp, open another terminal window, `cd` into the project directory and run:
