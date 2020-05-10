@@ -22,16 +22,16 @@ contract StarNotary is ERC721 {
     // mapping the TokenId and price
     mapping(uint256 => uint256) public starsForSale;
     // Create Star using the Struct
-    function createStar(string memory _name, uint256 starTokenID) public { // Passing the name and tokenId as a parameters
+    function createStar(string memory _name, uint256 _tokenId) public { // Passing the name and tokenId as a parameters
         Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
-        tokenIdToStarInfo[starTokenID] = newStar; // Creating in memory the Star -> tokenId mapping
-        _mint(msg.sender, starTokenID); // _mint assign the the star with _tokenId to the sender address (ownership)
+        tokenIdToStarInfo[_tokenId] = newStar; // Creating in memory the Star -> tokenId mapping
+        _mint(msg.sender, _tokenId); // _mint assign the the star with _tokenId to the sender address (ownership)
     }
 
     // Putting a Star for sale (Adding the star tokenid into the mapping starsForSale, first verify that the sender is the owner)
-    function putStarUpForSale(uint256 starTokenID, uint256 _price) public {
-        require(ownerOf(starTokenID) == msg.sender, "You can't sale a star that you don't own");
-        starsForSale[starTokenID] = _price;
+    function putStarUpForSale(uint256 _tokenId, uint256 _price) public {
+        require(ownerOf(_tokenId) == msg.sender, "You can't sale a star that you don't own");
+        starsForSale[_tokenId] = _price;
     }
 
 
@@ -40,14 +40,14 @@ contract StarNotary is ERC721 {
         return address(uint160(x));
     }
 
-    function buyStar(uint256 starTokenID) public  payable {
-        require(starsForSale[starTokenID] > 0, "The Star should be up for sale on StarNotary!");
-        uint256 starCost = starsForSale[starTokenID];
-        address ownerAddress = ownerOf(starTokenID);
+    function buyStar(uint256 _tokenId) public  payable {
+        require(starsForSale[_tokenId] > 0, "The Star should be up for sale on StarNotary!");
+        uint256 starCost = starsForSale[_tokenId];
+        address ownerAddress = ownerOf(_tokenId);
         require(msg.value > starCost, "You need to have enough Ether to purchase this one!");
 
         // We can't use _addTokenTo or_removeTokenFrom functions, now we have to use _transferFrom
-        _transferFrom(ownerAddress, msg.sender, starTokenID);
+        _transferFrom(ownerAddress, msg.sender, _tokenId);
 
         // We need to make this conversion to be able to use transfer() function to transfer ethers
         address payable ownerAddressPayable = _make_payable(ownerAddress);
@@ -58,31 +58,31 @@ contract StarNotary is ERC721 {
     }
 
     // Implement Task 1 lookUptokenIdToStarInfo
-    function lookUptokenIdToStarInfo (uint starTokenID) public view returns (string memory) {
+    function lookUptokenIdToStarInfo (uint _tokenId) public view returns (string memory) {
         //1. You should return the Star saved in tokenIdToStarInfo mapping
-        return tokenIdToStarInfo[starTokenID].name;
+        return tokenIdToStarInfo[_tokenId].name;
     }
 
     // Implement Task 1 Exchange Stars function
-    function exchangeStars(uint256 starTokenID1, uint256 starTokenID2) public {
+    function exchangeStars(uint256 _tokenId1, uint256 _tokenId2) public {
         //1. Passing to star tokenId you will need to check if the owner of _tokenId1 or _tokenId2 is the sender
-        address OwnerStar1 = ownerOf(starTokenID1);
-        address OwnerStar2 = ownerOf(starTokenID2);
+        address star1Owner = ownerOf(_tokenId1);
+        address star2Owner = ownerOf(_tokenId2);
         //2. You don't have to check for the price of the token (star)
-        require(msg.sender == OwnerStar1 || msg.sender == OwnerStar2, "You don't these stars");
+        require(msg.sender == star1Owner || msg.sender == star2Owner, "You don't these stars");
         //3. Get the owner of the two tokens (ownerOf(_tokenId1), ownerOf(_tokenId1)
         //4. Use _transferFrom function to exchange the tokens.
-        _transferFrom(OwnerStar1, OwnerStar2, starTokenID1);
-        _transferFrom(OwnerStar2, OwnerStar1, starTokenID2);
+        _transferFrom(star1Owner, star2Owner, _tokenId1);
+        _transferFrom(star2Owner, star1Owner, _tokenId2);
     }
 
     // Implement Task 1 Transfer Stars
-    function transferStar(address _to1, uint256 starTokenID) public {
+    function transferStar(address _to1, uint256 _tokenId) public {
         //1. Check if the sender is the ownerOf(_tokenId)
-        address OwnerStar = ownerOf(starTokenID);
-        require(msg.sender == OwnerStar, "You don't own these stars!");
+        address starOwner = ownerOf(_tokenId);
+        require(msg.sender == starOwner, "You don't own these stars!");
         //2. Use the transferFrom(from, to, tokenId); function to transfer the Star
-        _transferFrom(msg.sender, _to1, starTokenID);
+        _transferFrom(msg.sender, _to1, _tokenId);
     }
 
 }
