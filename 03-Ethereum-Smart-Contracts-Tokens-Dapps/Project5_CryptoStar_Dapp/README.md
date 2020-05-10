@@ -13,7 +13,7 @@ Interstellars
 INTX
 
 ### Your “Token Address” on the Rinkeby Network
-[0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb](0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb)
+[0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb](https://etherscan.io/tx/0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb)
 
 ## Resources
 - [Open-Zeppelin documentation](https://docs.openzeppelin.com/cli/2.8/faq])
