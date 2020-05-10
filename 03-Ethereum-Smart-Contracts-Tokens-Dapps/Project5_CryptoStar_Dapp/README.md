@@ -15,9 +15,9 @@ INTX
 ### Your “Token Address” on the Rinkeby Network
 
 ## Resources
-- ![Open-Zeppelin documentation](https://docs.openzeppelin.com/cli/2.8/faq])
-- ![Solidity documentation](https://solidity.readthedocs.io/en/v0.6.7/)
-- ![Stackoverflow](https://stackoverflow.com/questions/54210366/why-does-the-solidity-compiler-throw-a-parse-error-on-import-statements-whats) + Udacity mentors: fixing issue with version differences between solidity & dependencies of Web3 in JSON files and the parser issues b/c of version control
+- [Open-Zeppelin documentation](https://docs.openzeppelin.com/cli/2.8/faq])
+- [Solidity documentation](https://solidity.readthedocs.io/en/v0.6.7/)
+- [Stackoverflow](https://stackoverflow.com/questions/54210366/why-does-the-solidity-compiler-throw-a-parse-error-on-import-statements-whats) + Udacity mentors: fixing issue with version differences between solidity & dependencies of Web3 in JSON files and the parser issues b/c of version control
 
 
 ## Task 1
