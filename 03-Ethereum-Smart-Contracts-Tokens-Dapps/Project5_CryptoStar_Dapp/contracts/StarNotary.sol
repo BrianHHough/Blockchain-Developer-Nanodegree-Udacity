@@ -21,8 +21,6 @@ contract StarNotary is ERC721 {
     mapping(uint256 => Star) public tokenIdToStarInfo;
     // mapping the TokenId and price
     mapping(uint256 => uint256) public starsForSale;
-
-    
     // Create Star using the Struct
     function createStar(string memory _name, uint256 _starTokenID) public { // Passing the name and tokenId as a parameters
         Star memory newStar = Star(_name); // Star is an struct so we are creating a new Star
@@ -54,7 +52,6 @@ contract StarNotary is ERC721 {
         // We need to make this conversion to be able to use transfer() function to transfer ethers
         address payable ownerAddressPayable = _make_payable(ownerAddress);
         ownerAddressPayable.transfer(starCost);
-        
         if(msg.value > starCost) {
             msg.sender.transfer(msg.value - starCost);
         }

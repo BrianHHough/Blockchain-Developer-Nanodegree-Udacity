@@ -28,6 +28,14 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+const HDWalletProvider = require('truffle-hdwallet-provider');
+
+const infuraKey = "27b780c864594760b33dd24dca32f66b";
+
+const fs = require('fs');
+const mnemonic = fs.readFileSync(".secret").toString().trim();
+
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -56,7 +64,7 @@ module.exports = {
       network_id: 27,
       gas: 45000,
       gasPrice: 1000000
-    }
+    },
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port
