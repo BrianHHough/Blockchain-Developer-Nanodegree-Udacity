@@ -66,16 +66,10 @@ contract StarNotary is ERC721 {
     // Implement Task 1 Exchange Stars function
     function exchangeStars(uint256 starTokenID1, uint256 starTokenID2) public {
         //1. Passing to star tokenId you will need to check if the owner of _tokenId1 or _tokenId2 is the sender
-        if (msg.sender != ownerOf(starTokenID1) && msg.sender != ownerOf(starTokenID2)) {
-            revert("You must be an owner of one of these stars to exchange it");
-        }
-        // Get address of two potential wallets
         address OwnerStar1 = ownerOf(starTokenID1);
         address OwnerStar2 = ownerOf(starTokenID2);
         //2. You don't have to check for the price of the token (star)
-        if (OwnerStar1 == OwnerStar2) {
-            revert("You already own both of these stars in the sky");
-        }
+        require(msg.sender == OwnerStar1 || msg.sender == OwnerStar2, "You don't these stars");
         //3. Get the owner of the two tokens (ownerOf(_tokenId1), ownerOf(_tokenId1)
         //4. Use _transferFrom function to exchange the tokens.
         _transferFrom(OwnerStar1, OwnerStar2, starTokenID1);
@@ -85,11 +79,8 @@ contract StarNotary is ERC721 {
     // Implement Task 1 Transfer Stars
     function transferStar(address _to1, uint256 starTokenID) public {
         //1. Check if the sender is the ownerOf(_tokenId)
-        if (msg.sender != ownerOf(starTokenID)) {
-            revert("You must be one of these stars in the sky to exchange them!");
-        }
-        // address OwnerStar = ownerOf(_starTokenID);
-        // require(msg.sender == OwnerStar, "You don't own these stars!");
+        address OwnerStar = ownerOf(starTokenID);
+        require(msg.sender == OwnerStar, "You don't own these stars!");
         //2. Use the transferFrom(from, to, tokenId); function to transfer the Star
         _transferFrom(msg.sender, _to1, starTokenID);
     }
