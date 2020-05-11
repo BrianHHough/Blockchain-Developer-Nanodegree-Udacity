@@ -13,7 +13,7 @@ Interstellars
 INTX
 
 ### Your “Token Address” on the Rinkeby Network
-[0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb](https://etherscan.io/tx/0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb)
+Etherscan: [0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb](https://etherscan.io/tx/0x68ae0fc1f0588ccefe22d5923a8e437fbb41ae5f3a3a0082fb9492a31c8f68bb)
 
 ## Resources
 - [Open-Zeppelin documentation](https://docs.openzeppelin.com/cli/2.8/faq])
@@ -82,6 +82,7 @@ Add a function lookUptokenIdToStarInfo, that looks up the stars using the Token 
 `cd app`
 `npm run dev`
 
-**App Runs Successfully**
+**Application runs successfully!**
+![image](https://github.com/BrianHHough/Blockchain-Developer-Nanodegree-Udacity/blob/master/Documentation/Project-StarNotary/Successful%20Transaction.png)
 
 
