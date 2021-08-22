@@ -71,8 +71,8 @@
 ]);
 
         // Get the contract abi
-        var myMessage = RemixContract.at('0xD7221040776e001E285AA39Ab74ee67D9295510d');
-
+        // var myMessage = RemixContract.at('0xD7221040776e001E285AA39Ab74ee67D9295510d');
+        let RemixContract = new web3.eth.Contract(ABI_JSON_INTERFACE, 0xD7221040776e001E285AA39Ab74ee67D9295510d);
         console.log(myMessage);
 
         $("#setMessageButton").click(function () {
